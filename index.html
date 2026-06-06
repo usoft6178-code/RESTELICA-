@@ -1,16 +1,28 @@
-<!DOCTYPE html>
-<html>
+<!<!DOCTYPE html>
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown</title>
+    <title>Verso il Kosovo</title>
     <style>
-        body { display: flex; justify-content: center; align-items: center; height: 100vh; font-family: sans-serif; background: #000; color: #fff; margin: 0; }
-        #timer { font-size: 3rem; }
+        body { margin: 0; background: #0a0a0a; color: white; font-family: sans-serif; text-align: center; }
+        .section { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px; }
+        img { max-width: 90%; border-radius: 15px; margin: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        h1 { font-size: 3rem; color: #d0a040; }
+        #timer { font-size: 3rem; margin-top: 50px; font-weight: bold; color: #00d4ff; }
     </style>
 </head>
 <body>
-    <div id="timer">Loading...</div>
+    <div class="section">
+        <h1>Sei pronto?</h1>
+        <img src="1000038052.jpg" alt="Viaggio 1">
+        <img src="1000038048.jpg" alt="Viaggio 2">
+        <img src="1000038049.jpg" alt="Viaggio 3">
+        <img src="1000038050.jpg" alt="Viaggio 4">
+        <h1>Welcome to Kosovo</h1>
+        <div id="timer">Caricamento...</div>
+    </div>
+
     <script>
         const targetDate = new Date("Dec 31, 2026 23:59:59").getTime();
         setInterval(() => {

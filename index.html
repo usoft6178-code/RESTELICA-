@@ -3,31 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Verso il Kosovo</title>
     <style>
-        body { margin: 0; background: #0a0a0a; color: white; font-family: sans-serif; text-align: center; }
-        .section { padding: 20px; }
-        img { max-width: 90%; border-radius: 15px; margin: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
-        h1 { font-size: 2rem; color: #d0a040; margin-top: 40px; }
-        #timer { font-size: 2.5rem; margin-top: 30px; font-weight: bold; color: #00d4ff; padding-bottom: 50px; }
+        body { margin: 0; background: #000; color: white; text-align: center; font-family: sans-serif; }
+        .slide-container { height: 80vh; display: flex; justify-content: center; align-items: center; }
+        .slide { max-width: 90%; max-height: 90%; opacity: 0; position: absolute; transition: opacity 1s; }
+        .slide.active { opacity: 1; }
+        #timer { font-size: 2.5rem; color: #00d4ff; font-weight: bold; margin-top: 20px; }
     </style>
 </head>
 <body>
-    <div class="section">
-        <h1>Sei pronto?</h1>
-        <img src="1000038052.jpg" alt="Foto 1">
-        <img src="1000038048.jpg" alt="Foto 2">
-        <img src="1000038049.jpg" alt="Foto 3">
-        <img src="1000038050.jpg" alt="Foto 4">
-        <h1>Welcome to Kosovo</h1>
-        <div id="timer">Caricamento...</div>
+
+    <div class="slide-container">
+        <img src="1780782597681.jpeg" class="slide active"> <img src="1000038052.jpg" class="slide">
+        <img src="1000038048.jpg" class="slide">
+        <img src="1000038049.jpg" class="slide">
+        <img src="1000038050.jpg" class="slide">
     </div>
 
+    <div id="timer">Loading...</div>
+
     <script>
-        const targetDate = new Date("June 27, 2026 16:00:00").getTime();
+        // Logica Slide: cambia ogni 2 secondi
+        let slides = document.querySelectorAll('.slide');
+        let index = 0;
         setInterval(() => {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
+            slides[index].classList.remove('active');
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }, 2000); 
+
+        // Logica Timer: punta al 27 Giugno 2026 ore 16:00
+        const target = new Date("June 27, 2026 16:00:00").getTime();
+        setInterval(() => {
+            const diff = target - new Date().getTime();
             const d = Math.floor(diff / (1000 * 60 * 60 * 24));
             const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));

@@ -1,22 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verso il Kosovo</title>
+    <style>
+        body { margin: 0; background: #0a0a0a; color: white; font-family: sans-serif; text-align: center; }
+        .section { padding: 20px; }
+        img { max-width: 90%; border-radius: 15px; margin: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        h1 { font-size: 2rem; color: #d0a040; margin-top: 40px; }
+        #timer { font-size: 2.5rem; margin-top: 30px; font-weight: bold; color: #00d4ff; padding-bottom: 50px; }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h1>Sei pronto?</h1>
+        <img src="1000038052.jpg" alt="Foto 1">
+        <img src="1000038048.jpg" alt="Foto 2">
+        <img src="1000038049.jpg" alt="Foto 3">
+        <img src="1000038050.jpg" alt="Foto 4">
+        <h1>Welcome to Kosovo</h1>
+        <div id="timer">Caricamento...</div>
+    </div>
+
     <script>
-        // Data fissata per il 27 giugno 2026 alle 16:00
         const targetDate = new Date("June 27, 2026 16:00:00").getTime();
-        
         setInterval(() => {
             const now = new Date().getTime();
             const diff = targetDate - now;
-            
-            // Se il tempo è scaduto
-            if (diff < 0) {
-                document.getElementById("timer").innerHTML = "Siamo arrivati!";
-                return;
-            }
-
             const d = Math.floor(diff / (1000 * 60 * 60 * 24));
             const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
             const s = Math.floor((diff % (1000 * 60)) / 1000);
-            
             document.getElementById("timer").innerHTML = `${d}d ${h}h ${m}m ${s}s`;
         }, 1000);
     </script>
+</body>
+</html>
